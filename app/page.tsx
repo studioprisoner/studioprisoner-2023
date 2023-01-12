@@ -42,7 +42,7 @@ interface Link {
 }
 
 interface Social {
-  name: string;
+  title: string;
   href: string;
 }
 
@@ -67,23 +67,27 @@ export default async function HomePage() {
         <LinkCard key={link.href} {...link} />
       ))}
       <div className='flex items-center gap-4 mt-8'>
-        {data.socials.map((social) => {
-          if (social.href.includes('twitter')) {
-            return <FaTwitter className='w-8 h-8' key={social.href} />
-          }
-          if (social.href.includes('instagram')) {
-            return <FaInstagram className='w-8 h-8' key={social.href}/>
-          }
-          if (social.href.includes('linkedin')) {
-            return <FaLinkedin className='w-8 h-8' key={social.href}/>
-          }
-          if (social.href.includes('github')) {
-            return <FaGithub className='w-8 h-8' key={social.href}/>
-          }
-          if (social.href.includes('subculture')) {
-            return <FaMastodon className='w-8 h-8' key={social.href}/>
-          }
-        })}
+        {data.socials.map((social) => (
+          <a
+            aria-label={`${social.title} link`}
+            key={social.href}
+            href={social.href}
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            {social.href.includes('twitter') ? (
+              <FaTwitter className='w-8 h-8' />
+            ) : social.href.includes('instagram') ? (
+              <FaInstagram className='w-8 h-8' />
+            ) : social.href.includes('linkedin') ? (
+              <FaLinkedin className='w-8 h-8' />
+            ) : social.href.includes('github') ? (
+              <FaGithub className='w-8 h-8' />
+            ) : social.href.includes('subculture') ? (
+              <FaMastodon className='w-8 h-8' />
+            ) : null}
+          </a>
+        ))}
       </div>
     </div>
   )
