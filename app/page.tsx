@@ -3,6 +3,9 @@ import { get } from '@vercel/edge-config';
 import { redirect } from 'next/navigation';
 import { FaTwitter, FaGithub, FaLinkedin, FaInstagram, FaMastodon } from 'react-icons/fa'
 
+export const dynamic = 'force-dynamic',
+  runtime = 'edge';
+
 
 function LinkCard({title, href, image}: { title: string; href: string; image?: string }) {
   return (
