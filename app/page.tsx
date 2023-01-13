@@ -9,7 +9,7 @@ export const dynamic = 'force-dynamic',
 
 function LinkCard({title, href, image}: { title: string; href: string; image?: string }) {
   return (
-    <a href={href} className='flex items-center p-1 w-full rounded-md shadow-sm hover:scale-105 bg-white transition-all border border-gray-300 mb-3 text-black max-w-3xl'>
+    <a href={href} className='flex items-center p-1 w-full rounded-md shadow-sm hover:scale-105 bg-white transition-all border border-indigo-500 mb-3 text-black max-w-3xl'>
       <div className="flex text-center w-full">
         <div className='w-10 h-10'>
           {image && (
